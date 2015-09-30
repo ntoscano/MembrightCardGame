@@ -1,0 +1,21 @@
+{
+  "name": "MembrightCardGame",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ntoscano/MembrightCardGame",
+  "authors": [
+    "ntoscano <Nicolas.Toscano@gmail.com>"
+  ],
+  "description": "Card Game for Membright flashcards",
+  "main": "app/index.html",
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "bootstrap": "~3.3.5"
+  }
+}
