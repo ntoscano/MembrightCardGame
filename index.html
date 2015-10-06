@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp" class="no-js">
+<html lang="en" ng-app="MCG" class="no-js">
  <head>
   <script src="./bower_components/jquery/dist/jquery.min.js"></script>
   <script src="./bower_components/angular/angular.js"></script>
@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="./app/styles/styles.css">
   <script src="./app/app.js"></script>
   <script src="./app/controllers/directives.js" defer></script>
+  <script src="./app/controllers/deckController.js"></script>
+  <script src="./app/controllers/deckService.js"></script>
   <meta charset="UTF-8">
   <title>MembrightCardGame</title>
  </head>
@@ -17,10 +19,10 @@
   <div class="header">
     <navbar-link></navbar-link>
   </div>
-  <div class="gameContainer">
-    <question-container></question-container>
+  <div class="gameContainer" ng-controller="deckCtrl">
     <stats-container></stats-container>
-    <answer-container></answer-container>
+    <question-container deck="deck" select="select"></question-container>
+    <answer-container deck="deck" select="select"></answer-container>
   </div>
  </body>
 </html>

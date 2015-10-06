@@ -20,25 +20,6 @@
     };
   });
 
-  app.directive('questionContainer', function(){
-    return{
-      restrict: 'E',
-      scope: {
-        //stuff goes here
-      },
-      templateUrl: "app/views/questionContainer.html",
-      compile: function(tElement, tAttrs, transclude){
-        return{
-          pre : function (scope, iElement, iAttrs){
-          },
-          post: function (scope, iElement, iAttrs){
-            //stuff goes here
-          }
-        }
-      }
-    };
-  });
-
   app.directive('statsContainer', function(){
     return{
       restrict: 'E',
@@ -58,11 +39,32 @@
     };
   });
 
+  app.directive('questionContainer', function(){
+    return{
+      restrict: 'E',
+      scope: {
+        deck: '=',
+        select: '='
+      },
+      templateUrl: "app/views/questionContainer.html",
+      compile: function(tElement, tAttrs, transclude){
+        return{
+          pre : function (scope, iElement, iAttrs){
+          },
+          post: function (scope, iElement, iAttrs){
+            //stuff goes here
+          }
+        }
+      }
+    };
+  });
+
   app.directive('answerContainer', function(){
     return{
       restrict: 'E',
       scope: {
-        //stuff goes here
+        deck: '=',
+        select: '='
       },
       templateUrl: "app/views/answerContainer.html",
       compile: function(tElement, tAttrs, transclude){
