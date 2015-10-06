@@ -16,6 +16,10 @@
         }
         $scope.deck.cards[CID].aSelected = 1;
       }
+
+      if($scope.deck.cards[CID].aSelected && $scope.deck.cards[CID].qSelected) console.log('match');
+      else console.log('nonmatch');
+
     }
 
 
