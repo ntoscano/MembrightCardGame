@@ -1,7 +1,7 @@
 <div class="container">
   <div class="cardContainer col-xs-2 col-sm-2 col-md-2 col-lg-2 panel panel-default"
-      ng-class= "{'selected': deck.cards[CID].aSelected === true,
-                  'matched': deck.cards[CID].matched === true}"
+      ng-class= "{'selected': deck.cards[CID].state === 'aSelected',
+                  'matched': deck.cards[CID].state === 'matched'}"
       ng-click="select(this.CID, false)"
       ng-repeat="CID in deck.aList" >
     {{deck.cards[CID].obj.answer}}

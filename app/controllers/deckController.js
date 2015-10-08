@@ -10,31 +10,39 @@
 
     var _addSelector = function(CID, question){
       if(question){
-        if(!selectedQuestionID) selectedQuestionID = CID;
-        $scope.deck.cards[selectedQuestionID].qSelected = false;
-        $scope.deck.cards[CID].qSelected = true;
+        if(selectedQuestionID){
+          $scope.deck.cards[selectedQuestionID].state = 'hidden';
+        }
+        $scope.deck.cards[CID].state = 'qSelected';
         selectedQuestionID = CID;        
       }else{
-        if(!selectedAnswerID) selectedAnswerID = CID;
-        $scope.deck.cards[selectedAnswerID].aSelected = false;
-        $scope.deck.cards[CID].aSelected = true;
+        if(selectedAnswerID){
+          $scope.deck.cards[selectedAnswerID].state = 'hidden';
+        }
+        $scope.deck.cards[CID].state = 'aSelected';
         selectedAnswerID = CID;
       } 
     }
 
     var _removeSelector = function(){
-      $scope.deck.cards[selectedQuestionID].qSelected = false;
-      $scope.deck.cards[selectedAnswerID].aSelected = false;
+      if(selectedQuestionID){
+        $scope.deck.cards[selectedQuestionID].state = 'hidden';
+      }
+      if(selectedAnswerID){
+        $scope.deck.cards[selectedAnswerID].state = 'hidden';
+      }
     }
 
     $scope.select = function(CID, question){
-      if(!$scope.deck.cards[CID].matched){
+      if($scope.deck.cards[CID].state !== 'matched'){
         if($scope.matching){
           _addSelector(CID, question);
 
-          if(selectedQuestionID === selectedAnswerID) $scope.deck.cards[CID].matched = true;
-
-          _removeSelector();
+          if(selectedQuestionID === selectedAnswerID){
+            $scope.deck.cards[CID].state = 'matched';
+          }else{
+            _removeSelector();
+          }
           $scope.matching = false;
         }else{
           _addSelector(CID, question);
