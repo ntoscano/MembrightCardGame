@@ -2,9 +2,15 @@
   <div class="cardContainer col-xs-2 col-sm-2 col-md-2 col-lg-2 panel panel-default"
       ng-class= "{'selected': deck.cards[CID].state === 'qSelected',
                   'matched': deck.cards[CID].state === 'matched',
-                  'covered': deck.cards[CID].state !== 'qSelected' && deck.cards[CID].state !== 'matched'}"
-      ng-click="select(this.CID, true)" 
+                  'mismatched': deck.cards[CID].state === 'qMismatched',
+                  'covered': deck.cards[CID].state !== 'qSelected' &&
+                             deck.cards[CID].state !== 'matched' &&
+                             deck.cards[CID].state !== 'qMismatched'}"
+      ng-click="select(this.CID, 'question')" 
       ng-repeat="CID in deck.qList | limitTo: 5" >
-    {{deck.cards[CID].state === undefined ? '' : deck.cards[CID].obj.question}}
+      {{deck.cards[CID].state === 'qSelected' ||
+        deck.cards[CID].state === 'matched' ||
+        deck.cards[CID].state === 'qMismatched' ?
+        deck.cards[CID].obj.question : ''}}
   </div>
 </div>

@@ -2,9 +2,15 @@
   <div class="cardContainer col-xs-2 col-sm-2 col-md-2 col-lg-2 panel panel-default"
       ng-class= "{'selected': deck.cards[CID].state === 'aSelected',
                   'matched': deck.cards[CID].state === 'matched',
-                  'covered': deck.cards[CID].state !== 'aSelected' && deck.cards[CID].state !== 'matched'}"
-      ng-click="select(this.CID, false)"
+                  'mismatched': deck.cards[CID].state === 'aMismatched',
+                  'covered': deck.cards[CID].state !== 'aSelected' &&
+                             deck.cards[CID].state !== 'matched' &&
+                             deck.cards[CID].state !== 'aMismatched'}"
+      ng-click="select(this.CID, 'answer')"
       ng-repeat="CID in deck.aList" >
-      {{deck.cards[CID].state === 'aSelected' || deck.cards[CID].state === 'matched' ? deck.cards[CID].obj.answer : ''}}
+      {{deck.cards[CID].state === 'aSelected' ||
+        deck.cards[CID].state === 'matched' ||
+        deck.cards[CID].state === 'aMismatched' ?
+        deck.cards[CID].obj.answer : ''}}
   </div>
 </div>
