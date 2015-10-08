@@ -4,41 +4,69 @@
 
   app.controller('deckCtrl', ['$scope','deckSrvc', function($scope, deckService){
     $scope.deck = deckService.getDeck();
-    $scope.matching = false;
+    var matching = null;
+    var mismatched = false;
     var selectedAnswerID = null;
     var selectedQuestionID = null;
 
-    var _addSelector = function(CID, question){
-      if(question){
-        if(!selectedQuestionID) selectedQuestionID = CID;
-        $scope.deck.cards[selectedQuestionID].qSelected = false;
-        $scope.deck.cards[CID].qSelected = true;
+    var _addSelector = function(CID, cardType){
+      if(cardType === 'question'){
+        if(selectedQuestionID && $scope.deck.cards[selectedQuestionID].state !== 'matched'){
+          $scope.deck.cards[selectedQuestionID].state = null;
+        }
+        $scope.deck.cards[CID].state = 'qSelected';
         selectedQuestionID = CID;        
       }else{
-        if(!selectedAnswerID) selectedAnswerID = CID;
-        $scope.deck.cards[selectedAnswerID].aSelected = false;
-        $scope.deck.cards[CID].aSelected = true;
+        if(selectedAnswerID && $scope.deck.cards[selectedAnswerID].state !== 'matched'){
+          $scope.deck.cards[selectedAnswerID].state = null;
+        }
+        $scope.deck.cards[CID].state = 'aSelected';
         selectedAnswerID = CID;
       } 
     }
 
-    var _removeSelector = function(){
-      $scope.deck.cards[selectedQuestionID].qSelected = false;
-      $scope.deck.cards[selectedAnswerID].aSelected = false;
+    var _mismatch = function(){
+      mismatched = true;
+      if(selectedQuestionID){
+        $scope.deck.cards[selectedQuestionID].state = 'qMismatched';
+      }
+      if(selectedAnswerID){
+        $scope.deck.cards[selectedAnswerID].state = 'aMismatched';
+      }
     }
 
-    $scope.select = function(CID, question){
-      if(!$scope.deck.cards[CID].matched){
-        if($scope.matching){
-          _addSelector(CID, question);
+    var _checkMismatch = function(cardType){
+      if(mismatched){
+        if(selectedQuestionID){
+          $scope.deck.cards[selectedQuestionID].state = null;
+          selectedQuestionID = null;
+        }
+        if(selectedAnswerID){
+          $scope.deck.cards[selectedAnswerID].state = null;
+          selectedAnswerID = null;
+        }
+        mismatched = false;
+      }
+    }
 
-          if(selectedQuestionID === selectedAnswerID) $scope.deck.cards[CID].matched = true;
+    $scope.select = function(CID, cardType){
+      if(cardType === matching){
+        matching = null;
+      }
+      _checkMismatch();
+      if($scope.deck.cards[CID].state !== 'matched'){
+        if(matching !== null){
+          _addSelector(CID, cardType);
 
-          _removeSelector();
-          $scope.matching = false;
+          if(selectedQuestionID === selectedAnswerID){
+            $scope.deck.cards[CID].state = 'matched';
+          }else{
+            _mismatch();
+          }
+          matching = null;
         }else{
-          _addSelector(CID, question);
-          $scope.matching = true;
+          _addSelector(CID, cardType);
+          matching = cardType;
         }
       }
     }
