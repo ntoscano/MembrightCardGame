@@ -7,8 +7,9 @@
   overflow-y: hidden;
   overflow-x: hidden;
 }
-.hidden{
-  
+.covered{
+  background-image: url("../assets/pluto.jpg");
+  background-size: cover;
 }
 .selected{
   box-shadow: 0 0 15px rgba(81, 203, 238, 1) !important;

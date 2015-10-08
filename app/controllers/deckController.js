@@ -11,13 +11,13 @@
     var _addSelector = function(CID, question){
       if(question){
         if(selectedQuestionID){
-          $scope.deck.cards[selectedQuestionID].state = 'hidden';
+          $scope.deck.cards[selectedQuestionID].state = 'covered';
         }
         $scope.deck.cards[CID].state = 'qSelected';
         selectedQuestionID = CID;        
       }else{
         if(selectedAnswerID){
-          $scope.deck.cards[selectedAnswerID].state = 'hidden';
+          $scope.deck.cards[selectedAnswerID].state = 'covered';
         }
         $scope.deck.cards[CID].state = 'aSelected';
         selectedAnswerID = CID;
@@ -26,10 +26,10 @@
 
     var _removeSelector = function(){
       if(selectedQuestionID){
-        $scope.deck.cards[selectedQuestionID].state = 'hidden';
+        $scope.deck.cards[selectedQuestionID].state = 'covered';
       }
       if(selectedAnswerID){
-        $scope.deck.cards[selectedAnswerID].state = 'hidden';
+        $scope.deck.cards[selectedAnswerID].state = 'covered';
       }
     }
 
