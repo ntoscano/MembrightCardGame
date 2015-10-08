@@ -3,12 +3,16 @@
 }
 .cardContainer{
   margin: 10px;
-  padding: 5px;
+  padding: 15px;
   overflow-y: hidden;
   overflow-x: hidden;
 }
-.hLight{
+.selected{
   box-shadow: 0 0 15px rgba(81, 203, 238, 1) !important;
+  border: 1px solid rgba(81, 203, 238, 1) !important;
+}
+.matched{
+  box-shadow: 0 0 15px rgba(0, 255, 0, 1) !important;
   border: 1px solid rgba(81, 203, 238, 1) !important;
 }
 stats-container{
