@@ -15,7 +15,7 @@
           post: function (scope, iElement, iAttrs){
             //stuff goes here
           }
-        }
+        };
       }
     };
   });
@@ -35,7 +35,7 @@
           post: function (scope, iElement, iAttrs){
             //stuff goes here
           }
-        }
+        };
       }
     };
   });
@@ -55,7 +55,7 @@
           post: function (scope, iElement, iAttrs){
             //stuff goes here
           }
-        }
+        };
       }
     };
   });
@@ -75,7 +75,7 @@
           post: function (scope, iElement, iAttrs){
             //stuff goes here
           }
-        }
+        };
       }
     };
   });

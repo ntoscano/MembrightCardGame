@@ -25,7 +25,7 @@
         $scope.deck.cards[CID].state = 'aSelected';
         selectedAnswerID = CID;
       } 
-    }
+    };
 
     var _mismatch = function(){
       mismatched = true;
@@ -35,7 +35,7 @@
       if(selectedAnswerID){
         $scope.deck.cards[selectedAnswerID].state = 'aMismatched';
       }
-    }
+    };
 
     var _checkMismatch = function(cardType){
       if(mismatched){
@@ -49,7 +49,7 @@
         }
         mismatched = false;
       }
-    }
+    };
 
     $scope.select = function(CID, cardType){
       if(cardType === matching){
@@ -73,7 +73,7 @@
           matching = cardType;
         }
       }
-    }
+    };
 
 
   }]);

@@ -232,8 +232,8 @@
           aList: aList
         };
       }
-    }
+    };
     return deckGetter;
-  }])
+  }]);
 
 })();
