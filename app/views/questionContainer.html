@@ -3,11 +3,11 @@
       ng-class= "{'selected': deck.cards[CID].state === 'qSelected',
                   'matched': deck.cards[CID].state === 'matched',
                   'mismatched': deck.cards[CID].state === 'qMismatched',
-                  'covered': deck.cards[CID].state !== 'qSelected' &&
+                  'qCovered': deck.cards[CID].state !== 'qSelected' &&
                              deck.cards[CID].state !== 'matched' &&
                              deck.cards[CID].state !== 'qMismatched'}"
       ng-click="select(this.CID, 'question')" 
-      ng-repeat="CID in deck.qList | limitTo: 5" 
+      ng-repeat="CID in deck.qList" 
       ng-bind-html="deck.cards[CID].state === 'qSelected' ||
         deck.cards[CID].state === 'matched' ||
         deck.cards[CID].state === 'qMismatched' ?
