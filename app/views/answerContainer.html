@@ -3,7 +3,7 @@
       ng-class= "{'selected': deck.cards[CID].state === 'aSelected',
                   'matched': deck.cards[CID].state === 'matched',
                   'mismatched': deck.cards[CID].state === 'aMismatched',
-                  'covered': deck.cards[CID].state !== 'aSelected' &&
+                  'aCovered': deck.cards[CID].state !== 'aSelected' &&
                              deck.cards[CID].state !== 'matched' &&
                              deck.cards[CID].state !== 'aMismatched'}"
       ng-click="select(this.CID, 'answer')"

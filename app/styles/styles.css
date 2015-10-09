@@ -8,8 +8,12 @@
   overflow-y: hidden;
   overflow-x: hidden;
 }
-.covered{
+.qCovered{
   background-image: url("../assets/pluto.jpg");
+  background-size: cover;
+}
+.aCovered{
+  background-image: url("../assets/Jupiter.jpg");
   background-size: cover;
 }
 .selected{
@@ -23,6 +27,9 @@
 .mismatched{
   box-shadow: 0 0 15px rgba(255, 0, 0, 1) !important;
   border: 1px solid rgba(81, 203, 238, 1) !important;
+}
+.divider{
+  min-height: 50px;
 }
 stats-container{
   margin: 10px 10px 10px 10px;
