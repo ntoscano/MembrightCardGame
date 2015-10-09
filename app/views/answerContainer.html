@@ -7,10 +7,10 @@
                              deck.cards[CID].state !== 'matched' &&
                              deck.cards[CID].state !== 'aMismatched'}"
       ng-click="select(this.CID, 'answer')"
-      ng-repeat="CID in deck.aList" >
-      {{deck.cards[CID].state === 'aSelected' ||
+      ng-repeat="CID in deck.aList" 
+      ng-bind-html="deck.cards[CID].state === 'aSelected' ||
         deck.cards[CID].state === 'matched' ||
         deck.cards[CID].state === 'aMismatched' ?
-        deck.cards[CID].obj.answer : ''}}
+        deck.cards[CID].obj.answer : ''">
   </div>
 </div>
