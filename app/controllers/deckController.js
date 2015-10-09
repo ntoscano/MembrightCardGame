@@ -4,6 +4,8 @@
 
   app.controller('deckCtrl', ['$scope','$sce','deckSrvc', function($scope, $sce, deckService){
     $scope.deck = deckService.getDeck();
+    $scope.matched = 0;
+    $scope.leftInDeck = $scope.deck.qList.length;
     var matching = null;
     var mismatched = false;
     var selectedAnswerID = null;
@@ -60,6 +62,8 @@
 
           if(selectedQuestionID === selectedAnswerID){
             $scope.deck.cards[CID].state = 'matched';
+            $scope.matched++;
+            $scope.leftInDeck--;
           }else{
             _mismatch();
           }

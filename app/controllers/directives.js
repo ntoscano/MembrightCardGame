@@ -24,7 +24,8 @@
     return{
       restrict: 'E',
       scope: {
-        //stuff goes here
+        leftInDeck: '=',
+        matched: '='
       },
       templateUrl: "app/views/statsContainer.html",
       compile: function(tElement, tAttrs, transclude){

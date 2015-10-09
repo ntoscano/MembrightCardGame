@@ -21,10 +21,10 @@
     <navbar-link></navbar-link>
   </div>
   <div class="gameContainer" ng-controller="deckCtrl">
-    <stats-container></stats-container>
-    <question-container deck="deck" select="select"></question-container>
+    <stats-container left-in-deck="leftInDeck" matched="matched" ></stats-container>
+    <question-container deck="deck" select="select" ></question-container>
     <div class="divider"></div>
-    <answer-container deck="deck" select="select"></answer-container>
+    <answer-container deck="deck" select="select" ></answer-container>
   </div>
  </body>
 </html>
