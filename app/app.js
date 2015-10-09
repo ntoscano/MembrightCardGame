@@ -5,7 +5,8 @@ angular.module('MCG', [
   'ngRoute',
   'app-directives',
   'deckController',
-  'deckService'
+  'deckService',
+  'ngSanitize'
   ]).config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);

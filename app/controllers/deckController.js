@@ -1,8 +1,8 @@
 // deckController.js
 (function(){
-  var app = angular.module('deckController', ['deckService']);
+  var app = angular.module('deckController', ['deckService', 'ngSanitize']);
 
-  app.controller('deckCtrl', ['$scope','deckSrvc', function($scope, deckService){
+  app.controller('deckCtrl', ['$scope','$sce','deckSrvc', function($scope, $sce, deckService){
     $scope.deck = deckService.getDeck();
     var matching = null;
     var mismatched = false;
