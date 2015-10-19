@@ -18,6 +18,10 @@
     "angular": "~1.4.7",
     "bootstrap": "~3.3.5",
     "angular-route": "~1.4.7",
-    "angular-sanitize": "~1.4.7"
+    "angular-sanitize": "~1.4.7",
+    "angular-ui-router": "~0.2.15",
+    "angular-resource": "~1.4.7",
+    "ionic": "driftyco/ionic-bower#v1.0.0",
+    "angularLocalStorage": "ngStorage#~0.3.2"
   }
 }
