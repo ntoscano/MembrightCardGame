@@ -1,0 +1,25 @@
+{
+  "name": "membrightcardgame",
+  "version": "1.0.0",
+  "description": "MembrightCardGame",
+  "dependencies": {
+    "gulp-imagemin": "^2.3.0",
+    "gulp-notify": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-shell": "^0.5.0"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntoscano/MembrightCardGame.git"
+  },
+  "author": "Nicolas Toscano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ntoscano/MembrightCardGame/issues"
+  },
+  "homepage": "https://github.com/ntoscano/MembrightCardGame#readme"
+}
